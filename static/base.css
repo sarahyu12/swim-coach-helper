@@ -1,0 +1,191 @@
+*{
+  font-family: Arial;
+}
+
+html {
+  font-family: Arial;
+  font-size: 16px;
+  background: black;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+#center {
+  margin: auto;
+  text-align: center;
+}
+  
+a {
+  position: relative;
+}
+
+img {
+  width: 100px;
+  height: 100px;
+ }
+  
+p {
+  text-transform: uppercase;
+  font-size: 1.2em;
+  letter-spacing: 0.1em;
+  color: #FFF;
+  font-weight: bold;
+  margin-top: 50px;
+  text-align: center;
+ }
+
+.buttons {
+  text-align: center;
+}
+
+
+button{
+  background-color: #3450C8;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 32%;
+  text-align: center;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.timerDisplayTimer1{
+  text-align: center;
+  color: white;
+}
+
+.timerDisplayTimer2{
+  color: white;
+  text-align: center;
+}
+
+.timerDisplayTimer3{
+  color: white;
+  text-align: center;
+}
+
+#submit {
+  background-color: #3450C8;
+  color: white;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 30%;
+}
+
+@media screen and (min-width: 800px){
+  .container .col {
+    float: left;
+    width: 33%;
+  }
+
+  .container .center {
+  margin: auto;
+  width: 100%;
+  }
+}
+
+@media screen and (max-width: 799px) {
+  .container .col {
+    align: center;
+    width: 100%;
+  }
+  
+  .container .center {
+  float: center;
+  width: 100%;
+  }
+}
+
+
+#error {
+  width:250px;
+	height:40px;
+	margin:10px;
+	padding:10px;
+  text-align: center;
+  border-radius: 25px;
+  background-color: #eb6767;
+  weight: bold;
+  font-size: 15px;
+}
+
+.display {
+  font-size: 38px;
+}
+.stopwatch {
+  display: inline-block;
+  background-color: white;
+  border: 1px solid #eee;
+  padding: 5px;
+  margin: 5px;
+}
+
+.stopwatch span {
+  font-weight: bold;
+  display: block;
+}
+
+.stopwatch a {
+  padding-right: 5px;
+  text-decoration: none;
+}
+
+.ui-autocomplete {
+  max-height: 300px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding-right: 20px;
+}
+
+.ui-autocomplete-category {
+  font-size: 18px;
+  list-style: none;
+  width: 200px;
+}
+
+.ui-menu-item {
+  list-style: none;
+  width: 200px;
+  cursor: default;
+  background-color: white;
+}
+
+.ui-helper-hidden-accessible {
+  display: none;
+}
+
+.bigbox {
+  width:250px;
+	height:20px;
+	margin:10px;
+	padding:10px;
+  align: center;
+}
+
+.image {
+  width:215px;
+  height:120px;
+}
+
+.swimcenter{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+}
+
+#startAll {
+  margin-right: 8px;
+}
