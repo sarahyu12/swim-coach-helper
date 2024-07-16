@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <link rel="stylesheet" href="static/base.css">
+  <link rel="stylesheet" href="static/topnav.css">
+  <link rel="stylesheet" href="static/login.css">
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+</head>
+
+<div class="topnav">
+  <a><img  src="static/logo.PNG" class = "image"></a>
+  <a href="/">Home</a>
+      {% if user.is_authenticated %}
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a class="active" href="/login">Login</a>
+        {% endif %}
+      {% if user.is_authenticated %}
+      <a href="/timer">Timer</a>
+      <a href="https://charts.mongodb.com/charts-project-0-vnvhk/dashboards/629be2b0-e169-4621-8398-bd33ab766fc5" target="_blank">Data</a>
+      {% endif %}
+</div>
+<div class="space">
+  <div class="cent">
+  <h3 class="title"><FONT COLOR=white>Login</h3>
+    <div class="logbutton">
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          {% for msg in messages %}
+            <p id = "error center" >{{msg}}</p>
+          {% endfor %}
+        {% endif %}
+      {% endwith %}
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="control">
+                    <input type="text" name="username" placeholder="Username" autofocus="">
+                </div>
+            </div>
+
+            <div class="field">
+                <div class="control">
+                    <input type="password" name="password" placeholder="Password">
+                </div>
+            </div>
+            <button id="loginbutton">Login</button>
+        </form>
+    </div>
+  </div>
+</div>

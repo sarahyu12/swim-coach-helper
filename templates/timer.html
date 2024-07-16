@@ -1,0 +1,167 @@
+  <!DOCTYPE html>
+  <html>
+  <head>
+    <link rel="stylesheet" href="static/topnav.css">
+    <link rel="stylesheet" href="static/base.css">    <script src="static/timer.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"> </script>  
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/jquery-ui.js"></script>  
+    <link href="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.16/themes/ui-lightness/jquery-ui.css"rel="stylesheet" type="text/css" />  
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  </head>
+
+<div class="topnav">
+  <a><img  src="static/logo.PNG" class = "image" ></a>
+      <a href="/">Home</a>
+      {% if user.is_authenticated %}
+        <a href="/logout">Logout</a>
+        {% else %}
+        <a href="/login">Login</a>
+        {% endif %}
+      {% if user.is_authenticated %}
+      <a href="/timer" class="active">Timer</a>
+      <a href="https://charts.mongodb.com/charts-project-0-vnvhk/dashboards/629be2b0-e169-4621-8398-bd33ab766fc5" target="_blank">Data</a>
+      {% endif %}
+</div>
+    <p>swimmer stopwatches</p>
+  <div id="center">
+    <button id="startAll">Start All</button> <button id="resetAll">Reset All</button>
+  </div>
+  <div class="container">  
+    <div class = "col">
+    <h3 class="title" style="text-align:center;"><FONT COLOR=white>Swimmer 1</h3>
+    <div class="timerDisplayTimer1 display leftcontainer">
+       00 : 00 : 000
+    </div>
+    <div class = "buttons">
+    <button id="pauseTimerTimer1">Stop</button>
+    <button id="startTimerTimer1">Start</button>
+    <button id="resetTimerTimer1">Reset</button>
+  </div>
+    </div>
+    <div class = "col">
+      <h3 class="title" style="text-align:center;"><FONT COLOR=white>Swimmer 2</h3>
+    <div class="timerDisplayTimer2 display">
+      00 : 00 : 000
+    </div>
+    <div class="buttons">
+    <button id="pauseTimerTimer2">Stop</button>
+    <button id="startTimerTimer2">Start</button>
+    <button id="resetTimerTimer2">Reset</button>
+    </div>
+    </div>
+    <div class = "col">
+    <h3 class="title" style="text-align:center;"><FONT COLOR=white>Swimmer 3</h3>
+    <div class="timerDisplayTimer3 display">
+       00 : 00 : 000
+    </div>
+    <div class="buttons">
+    <button id="pauseTimerTimer3">Stop</button>
+    <button id="startTimerTimer3">Start</button>
+    <button id="resetTimerTimer3">Reset</button>
+      
+    </div>
+    </div>
+    
+    <form method="POST">
+        <div class = "col">
+      <h3 class="title" style="text-align:center;"><FONT COLOR=white>Swimmer 1</h3><br>
+      <input type="text" id="tags" name = "nameSwimmer1" placeholder="Swimmer 1" style="width:31%; height:34px;">
+      <select name="strokeSwimmer1" id="stroke" placeholder="Swimmer 1 Stroke" style="width:31%; height:40px;">
+      <option value="freestyle">Freestyle</option>
+      <option value="backstroke">Backstroke</option>
+      <option value="breaststroke">Breaststroke</option>
+      <option value="butterfly">Butterfly</option>
+    </select>
+      <select name="distanceSwimmer1" id="distance" placeholder="Swimmer 1 Distance" style="width:31%; height:40px;">
+      <option value="25">25m</option>
+      <option value="50">50m</option>
+      <option value="75">75m</option>
+      <option value="100">100m</option>
+      <option value="150">150m</option>
+      <option value="200">200m</option>
+    </select>
+      </div>
+      <div class = "col">
+        <h3 class="title" style="text-align:center;"><FONT COLOR=white>Swimmer 2</h3><br>
+        <input type="text" id="tags1" name = "nameSwimmer2" placeholder="Swimmer 2" style="width:31%; height:34px;">
+        <select name="strokeSwimmer2" id="stroke" placeholder="Swimmer 2 Stroke" style="width:31%; height:40px;">
+      <option value="freestyle">Freestyle</option>
+      <option value="backstroke">Backstroke</option>
+      <option value="breaststroke">Breaststroke</option>
+      <option value="butterfly">Butterfly</option>
+    </select>
+        <select name="distanceSwimmer2" id="distance" placeholder="Swimmer 2 Distance" style="width:31%; height:40px;">
+      <option value="25">25m</option>
+      <option value="50">50m</option>
+      <option value="75">75m</option>
+      <option value="100">100m</option>
+      <option value="150">150m</option>
+      <option value="200">200m</option>
+    </select>
+      </div>
+      <div class = "col">
+        <h3 class="title" style="text-align:center;"><FONT COLOR=white>Swimmer 3</h3><br>
+        <input type="text" id="tags2" name = "nameSwimmer3" placeholder="Swimmer 3" style="width:31%; height:34px;">
+        <select name="strokeSwimmer3" id="stroke" placeholder="Swimmer 3 Stroke" style="width:31%; height:40px;">
+      <option value="freestyle">Freestyle</option>
+      <option value="backstroke">Backstroke</option>
+      <option value="breaststroke">Breaststroke</option>
+      <option value="butterfly">Butterfly</option>
+    </select>
+        <select name="distanceSwimmer3" id="distance" placeholder="Swimmer 3 Distance" style="width:31%; height:40px;">
+      <option value="25">25m</option>
+      <option value="50">50m</option>
+      <option value="75">75m</option>
+      <option value="100">100m</option>
+      <option value="150">150m</option>
+      <option value="200">200m</option>
+    </select>
+      </div>
+    <input type="hidden" name = "millisTimer1" id="millisTimer1" required/>
+    <input type="hidden" name = "millisTimer2" id="millisTimer2"/>
+    <input type="hidden" name = "millisTimer3" id="millisTimer3"/>
+    <div id="center">
+      <input type="submit" id = "submit" value="Submit">
+    </div>
+        </form>
+      </div>
+
+  <script>
+  $( function() {
+    var availableTags = [
+        {% for name in name_list %}
+            "{{name}}",
+        {% endfor %}
+    ];
+    $( "#tags" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+    <script>
+  $( function() {
+    var availableTags = [
+        {% for name in name_list %}
+            "{{name}}",
+        {% endfor %}
+    ];
+    $( "#tags1" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+    <script>
+  $( function() {
+    var availableTags = [
+        {% for name in name_list %}
+            "{{name}}",
+        {% endfor %}
+    ];
+    $( "#tags2" ).autocomplete({
+      source: availableTags
+    });
+  } );
+  </script>
+</body>
+</div>
+</html>
